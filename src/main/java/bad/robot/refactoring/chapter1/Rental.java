@@ -46,5 +46,8 @@ public class Rental {
         
         return 1;
     }
+    double getTotalAmount() {
+    	return getChargeFor();
+    }
 
 }
