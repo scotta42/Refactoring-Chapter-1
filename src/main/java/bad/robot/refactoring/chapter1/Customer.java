@@ -26,13 +26,12 @@ public class Customer {
 
         String result = "Rental record for " + getName() + "\n";
         for (Rental rental : rentals) {
-        	frequentRenterPoints += rental.calculateFrequentRenterPoints(rental);
+        	frequentRenterPoints += rental.calculateFrequentRenterPoints();
         	
         	
         	// show figures for this rental
             result += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(rental.getChargeFor()) + "\n";
-
-            totalAmount += rental.getChargeFor();
+            totalAmount += getTotalAmount(rental);	
         }
 
         result += "Amount owed is " + String.valueOf(totalAmount) + "\n";
@@ -40,5 +39,10 @@ public class Customer {
 
         return result;
     }
+    public double getTotalAmount(Rental rental) {
+	// show figures for this rental
+    result += "\t" + rental.getMovie().getTitle() + "\t" + String.valueOf(rental.getChargeFor()) + "\n";
 
+    totalAmount += rental.getChargeFor();
+    }
 }
